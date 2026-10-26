@@ -1,0 +1,16 @@
+name: Organization CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    uses: calan-co/cicd-shared-pipeline/.github/workflows/reusable-repository-hygiene.yml@v1
+  shell:
+    uses: calan-co/cicd-shared-pipeline/.github/workflows/reusable-shell-ci.yml@v1
